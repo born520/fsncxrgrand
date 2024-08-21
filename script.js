@@ -1,3 +1,5 @@
+const scriptId = 'YOUR_SCRIPT_ID';
+
 async function fetchData() {
   try {
     // 로컬 스토리지에서 캐시된 데이터를 가져오기
@@ -9,7 +11,7 @@ async function fetchData() {
     }
 
     // Google Sheets 데이터를 비동기적으로 가져오기
-    const response = await fetch('https://script.google.com/macros/s/AKfycbyErrgmGR9Dh_vZG6dEBOnZVAckokzGW7i1coxhCDkEnmKT-pgLzZ8-dVGmKJuiITTs/exec');
+    const response = await fetch(`https://script.google.com/macros/s/${scriptId}/exec`);
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
@@ -117,3 +119,5 @@ function applyStyles(td, rowIndex, colIndex, data) {
 }
 
 document.addEventListener('DOMContentLoaded', fetchData);
+
+export { scriptId };  // Script ID를 외부에서 사용할 수 있도록 export
