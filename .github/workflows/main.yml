@@ -1,12 +1,11 @@
-name: Build and Deploy
+name: Daily Data Fetch
 
 on:
-  push:
-    branches:
-      - main
+  schedule:
+    - cron: '0 0 * * *'  # 매일 자정에 실행
 
 jobs:
-  build:
+  fetch-and-save:
     runs-on: ubuntu-latest
 
     steps:
@@ -16,16 +15,18 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '16'  # 또는 '20'으로 설정
+          node-version: '16'
 
-      - name: Install dependencies
-        run: npm install
+      - name: Fetch data from API
+        run: |
+          # script.js에 있는 Script ID를 참조하여 데이터 가져오기
+          SCRIPT_ID=$(node -e "console.log(require('./script.js').scriptId)")
+          curl -o data.json "https://script.google.com/macros/s/${SCRIPT_ID}/exec"
 
-      - name: Build the site
-        run: npm run build
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add data.json
+          git commit -m "Daily data update"
+          git push
