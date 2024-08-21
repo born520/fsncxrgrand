@@ -20,9 +20,18 @@ jobs:
       - name: Fetch data from API
         run: |
           SCRIPT_ID="YOUR_SCRIPT_ID"
-          curl -o data.json "https://script.google.com/macros/s/${SCRIPT_ID}/exec"
+          curl -o data.json "https://script.google.com/macros/s/${SCRIPT_ID}/exec" || echo "Failed to fetch data"
+
+          if [ -f "data.json" ]; then
+            echo "data.json file created successfully"
+            cat data.json
+          else
+            echo "Failed to create data.json file"
+            exit 1
+          fi
 
       - name: Commit and push changes
+        if: success()
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
