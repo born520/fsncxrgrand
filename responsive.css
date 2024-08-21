@@ -1,0 +1,17 @@
+@media only screen and (max-width: 600px) {
+    .waffle th, .waffle td {
+        font-size: 8pt !important; /* 작은 화면에서 글꼴 크기 줄이기 */
+        padding: 4px !important; /* 여백 줄이기 */
+    }
+
+    .waffle {
+        width: 100% !important; /* 테이블 너비를 화면에 맞게 조정 */
+        max-width: 100% !important; /* 최대 너비를 화면 크기로 제한 */
+        overflow-x: auto !important; /* 가로 스크롤 활성화 */
+        display: block !important;
+    }
+
+    .waffle th, .waffle td {
+        white-space: nowrap !important; /* 텍스트 줄바꿈 방지 */
+    }
+}

@@ -1,0 +1,13 @@
+/* 기본적으로 테이블을 전체 화면에 맞추기 */
+table {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    display: block !important;
+}
+
+th, td {
+    word-wrap: break-word !important;
+    white-space: nowrap !important;
+    text-align: center !important;
+}
