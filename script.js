@@ -1,4 +1,4 @@
-const scriptId = 'YOUR_SCRIPT_ID';
+const scriptId = 'AKfycbyErrgmGR9Dh_vZG6dEBOnZVAckokzGW7i1coxhCDkEnmKT-pgLzZ8-dVGmKJuiITTs';
 
 async function fetchData() {
   try {
