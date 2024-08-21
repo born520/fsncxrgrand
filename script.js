@@ -119,3 +119,43 @@ function applyStyles(td, rowIndex, colIndex, data) {
 }
 
 document.addEventListener('DOMContentLoaded', fetchData);
+// data.json 파일을 가져와서 처리
+fetch('https://born520.github.io/fsncxrgrand/data.json')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.json(); // JSON으로 파싱
+  })
+  .then(data => {
+    console.log(data); // JSON 데이터 확인
+    // 데이터 처리 및 테이블에 표시하는 로직을 여기에 추가
+    renderTable(data, true); // 데이터를 테이블에 표시
+  })
+  .catch(error => {
+    console.error('Error fetching data:', error);
+  });
+
+// 데이터를 테이블에 표시하는 함수
+function renderTable(data, isUpdate) {
+  const table = document.getElementById('data-table');
+  
+  // 기존 테이블 내용을 초기화
+  table.innerHTML = '';
+
+  // data.json의 tableData 배열을 순회하며 테이블에 데이터 추가
+  data.tableData.forEach((row) => {
+    const tr = document.createElement('tr');
+    row.forEach((cell) => {
+      const td = document.createElement('td');
+      td.textContent = cell;
+      tr.appendChild(td);
+    });
+    table.appendChild(tr);
+  });
+
+  // 로딩 메시지를 숨기고 테이블을 표시
+  document.getElementById('loading-indicator').style.display = 'none';
+  table.style.display = '';
+}
+
