@@ -19,8 +19,7 @@ jobs:
 
       - name: Fetch data from API
         run: |
-          # script.js에 있는 Script ID를 참조하여 데이터 가져오기
-          SCRIPT_ID=$(node -e "console.log(require('./script.js').scriptId)")
+          SCRIPT_ID="YOUR_SCRIPT_ID"
           curl -o data.json "https://script.google.com/macros/s/${SCRIPT_ID}/exec"
 
       - name: Commit and push changes
