@@ -119,5 +119,3 @@ function applyStyles(td, rowIndex, colIndex, data) {
 }
 
 document.addEventListener('DOMContentLoaded', fetchData);
-
-export { scriptId };  // Script ID를 외부에서 사용할 수 있도록 export
