@@ -1,43 +1,18 @@
-/* 기존의 styles.css 내용 그대로 사용 */
-table {
-  border-collapse: collapse;
-  width: 100%;
-  table-layout: auto;
-  word-wrap: break-word;
-}
-
-table, th, td {
-  border: 1px solid black;
-}
-
-th, td {
-  padding: 8px;
-  text-align: center;
-  vertical-align: middle;
-  white-space: pre-wrap;
+body {
   font-family: Arial, sans-serif;
-  font-size: 14px;
-  color: #333;
 }
 
-th {
-  background-color: #f4f4f4;
+#loading-indicator {
+  font-size: 18px;
   font-weight: bold;
 }
 
-td {
-  background-color: #ffffff;
+#data-table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-@media (max-width: 768px) {
-  table {
-    width: 100%;
-    overflow-x: auto;
-  }
-
-  th, td {
-    font-size: 12px;
-    padding: 6px;
-  }
-
- 
+#data-table td, #data-table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
