@@ -1,4 +1,4 @@
-const scriptId = 'YOUR_ACTUAL_SCRIPT_ID'; // Google Apps Script 웹앱 URL로 교체
+const scriptId = 'AKfycbyErrgmGR9Dh_vZG6dEBOnZVAckokzGW7i1coxhCDkEnmKT-pgLzZ8-dVGmKJuiITTs'; // Google Apps Script 웹앱 URL로 교체
 
 // Google Apps Script에서 데이터를 가져와서 처리
 fetch(`https://script.google.com/macros/s/${scriptId}/exec`)
