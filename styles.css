@@ -1,0 +1,39 @@
+/* 기본 스타일 설정 */
+body {
+    font-family: "맑은 고딕", monospace;
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    overflow-x: auto;
+}
+
+th, td {
+    padding: 8px;
+    border: 1px solid black;
+    font-size: 9pt;
+    word-wrap: break-word;
+    vertical-align: middle;
+}
+
+th {
+    background-color: #14766A;
+    color: white;
+    text-align: center;
+}
+
+/* 모바일 최적화: 작은 화면에서 글꼴 크기 조정 및 스크롤 활성화 */
+@media only screen and (max-width: 600px) {
+    th, td {
+        font-size: 7pt;
+        padding: 4px;
+    }
+
+    table {
+        overflow-x: auto;
+        display: block;
+    }
+}
