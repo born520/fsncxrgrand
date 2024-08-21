@@ -10,5 +10,15 @@
   <div id="loading-indicator">Loading...</div> <!-- 로딩 인디케이터 -->
   <table id="data-table" style="display:none;"></table> <!-- 테이블 초기에는 숨김 -->
   <script src="script.js"></script>
+  <script>
+    fetch('data.json')
+    .then(response => response.json())
+    .then(data => {
+      renderTable(data, true);
+      document.getElementById('loading-indicator').style.display = 'none';
+      document.getElementById('data-table').style.display = '';
+    })
+    .catch(error => console.error('Error loading data:', error));
+  </script>
 </body>
 </html>
