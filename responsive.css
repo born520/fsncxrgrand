@@ -5,7 +5,8 @@
     }
 
     .waffle {
-        width: 100%; /* 작은 화면에서 테이블 너비를 100%로 설정 */
+        width: 100%; /* 테이블 너비를 화면에 맞게 조정 */
+        max-width: 100%; /* 최대 너비를 화면 크기로 제한 */
         overflow-x: auto; /* 가로 스크롤 활성화 */
         display: block;
     }
